@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0;
+            color: #616161;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 1.6em;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 1.6em;
+        }
+
+        h3 {
+            font-size: 1em;
+            margin-top:20px;
+        }
+
+        ul {
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a img {
+            border: none;
+        }
+
+        img.left {
+            float: left;
+            margin: 0 20px 0 0;
+        }
+
+        img.right {
+            float: right;
+            margin: 0 0 0 20px;
+        }
+
+        /* Header */
+        #header {
+            padding: 4px 0px;
+            height: 75px;
+            position: relative;
+        }
+
+        #logo {
+            text-align: left;
+        }
+
+        /* Menu */
+        #menu {
+            position: absolute;
+            top:25px;
+            right:15px;
+            padding: 0;
+            height: 59px;
+            overflow: hidden;
+        }
+
+        #menu ul {
+            margin: 0;
+            list-style: none;
+        }
+
+        #menu li {
+            display: inline;
+        }
+
+        #menu li a {
+            display: block;
+            float: left;
+            height: 42px;
+            margin: 0;
+            padding: 18px 40px 0 40px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        #menu li a:hover {
+            text-decoration: underline;
+        }
+
+        #globalthemeswitcher {
+            position:absolute;
+            top:5px;
+            right:50px;
+        }
+
+        /* Page */
+        #page {
+            padding: 10px 0px;
+            background: #FFFFFF;
+        }
+
+        /* Content */
+        #content {
+            width: 70%;
+            float:left;
+        }
+
+        .post {
+            padding-bottom: 15px;
+        }
+
+        .post h1 {
+            font-weight: normal;
+        }
+
+        .title {
+            height: 30px;
+            margin-left: 10px;
+            padding: 8px 0 0 20px;
+        }
+
+        .title a {
+            border-bottom: none;
+            color: #FFFFFF;
+        }
+
+        .title a:hover {
+            border-bottom: 1px dotted #000000;
+        }
+
+        .submenu-title {
+            padding: 4px 10px;
+        }
+
+        .submenu-content {
+            text-align:center;
+        }
+
+        .byline {
+            margin: -60px 20px 20px 20px;
+        }
+
+        .byline a {
+            color: #DC8700;
+        }
+
+        .tag {
+            padding: 0 15px;
+        }
+
+        .entry {
+            padding: 0 20px;
+        }
+
+        .entry p {
+            line-height: 200%;
+        }
+
+        .links {
+            padding: 4px 0px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .links a {
+            border: none;
+        }
+
+        .links a:hover {
+        }
+
+        #sidebar {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+            margin-left: -1px;
+            overflow: hidden;
+        }
+
+        #sidebar a.ui-state-hover, 
+        #sidebar a.ui-state-highlight {
+            border:0 none;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        #sidebar table {
+            width: 100%;
+        }
+
+        #sidebar table td {
+            vertical-align: top;
+        }
+
+        #sidebar ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar ul li {
+            list-style-type: none;
+            padding: 1px;
+        }
+
+        /* Footer */
+        #footer {
+            height: 70px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+
+        #footer p {
+            margin: 0;
+            padding: 25px 0 0 0;
+            text-align: center;
+        }
+
+        #footer a {
+        }
+
+        #footer .link {
+            float: right;
+        }
+
+        #footer .copyright {
+            float: left;
+        }
+
+        .homeText {
+            line-height: 175%;
+        }
+
+        .homeMenu {
+            width:200px;
+            float:left;
+            margin-right:10px
+        }
+
+        .themeMenu {
+            overflow: auto;
+            height:300px;
+            width:200px;
+        }
+
+        .dp-xml {
+            width:1000px;
+        }
+
+        .ui-themeswitcher a.ui-selectonemenu-label-container {
+            text-decoration: none !important;
+        }
+
+        .ui-widget {
+            font-size: 12px !important;
+        }
+    </style>    
+    <h:head>
+        <title>Add Product</title>
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">  
+
+            <p:layoutUnit position="center">  
+
+
+                <h:form>
+                    <p:contextMenu for="folderTree">  
+                        <p:menuitem value="Add Categeory" update="folderPanel" oncomplete="folderDialog.show();" icon="ui-icon-plus"/>
+                    </p:contextMenu> 
+                    <p:panel id="panelId" style="border: 0px">
+                        <p:tree value="#{nodeBean.root}" var="node" dynamic="true" id="folderTree"
+                                selectionMode="single" selection="#{nodeBean.selectedNode}">
+                            <p:treeNode>
+                                <h:outputText value="#{node}"/>
+                            </p:treeNode>
+                        </p:tree>
+
+                        <p:dialog header="Add Categeory" widgetVar="folderDialog" modal="true" resizable="false"  
+                                  showEffect="clip" hideEffect="fold" appendToBody="true" >  
+                            <p:outputPanel id="folderPanel">  
+                                <h:panelGrid columns="2" cellpadding="4">  
+                                    <h:outputText value="Categeory Name:" />  
+                                    <h:inputText id="id" value="#{nodeBean.categeorystring}" required="true">
+                                        <f:validateLength minimum="1" maximum="30"/>
+                                    </h:inputText>
+                                    <p:commandButton value="Add Categeory" update="panelId" action="#{nodeBean.createNode()}" async="true"/>
+                                </h:panelGrid>  
+                            </p:outputPanel>
+                        </p:dialog>  
+
+                        <h:message for="id"/>
+                    </p:panel>
+
+
+                </h:form>
+                <h:form id="form">  
+
+                    <p:dataTable id="categeorytable" var="categeory" value="#{nodeBean.messages}" rowKey="#{categeory.fldCatogeryNameVC}"  
+                                 selection="#{nodeBean.selectedNode}" selectionMode="single">  
+
+                        <f:facet name="header">  
+                            Categeory 
+                        </f:facet>  
+
+                        <p:column headerText="Categeory ID">  
+                            #{categeory.fldCatogeryIDint}  
+                        </p:column>  
+
+                        <p:column headerText="Categeory Name">  
+                            #{categeory.fldCatogeryNameVC}  
+                        </p:column>  
+
+                        <p:column headerText="Parent Id" >  
+                            #{categeory.fldCatogeryParentIDint}  
+                        </p:column>  
+
+                        <p:column headerText="Created Date">  
+                            #{categeory.fldCreatedStringdate}  
+                        </p:column>  
+                        
+                        
+                        <p:column headerText="Created By">  
+                            #{car.fldCreatedbyVC}  
+                        </p:column>  
+                        
+                        
+                        <p:column headerText="Modified Date">  
+                            #{car.fldModifiedStringdate}  
+                        </p:column>  
+                        
+                        
+                        <p:column headerText="Modified By">  
+                            #{car.fldModifiedByVC}  
+                        </p:column>  
+
+                    </p:dataTable>  
+                </h:form>  
+            </p:layoutUnit>  
+        </p:layout>  
+    </h:body>
+</html>
+
