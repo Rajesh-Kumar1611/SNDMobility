@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Users Page</title>
+    </h:head>
+    <body>
+        <p:layout fullPage="true">
+            <ui:include src="docking.xhtml"/>
+            <ui:include src="panelmenu.xhtml"/>
+            <p:layoutUnit position="center" >  
+
+                <h:form id="registrationForm">
+                    <p:growl id="msg" showDetail="true" life="3000" />
+                    <p:panel header="Registration" style="width: 360px;">
+                        <h:panelGrid id="registrationPanel" columns="2">
+
+                            <h:outputText value="Username" />
+                            <p:inputText id="username" value="#{registrationBean.username}"  required="true" requiredMessage="UserName is required"
+                                         validatorMessage="UserName should be of length from 2 to 10 chars">
+                                <f:validateLength minimum="2" maximum="10" for="Username"></f:validateLength> 
+                            </p:inputText>
+                            <p:spacer></p:spacer>
+                            <p:message for="username" ></p:message>
+
+                            <h:outputText value="Office:"/> 
+
+                            <h:selectOneMenu id="office" value="#{registrationBean.officename(s)}" required="true">  
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem  itemValue="#{registrationBean.officename{s}"/>
+                            </h:selectOneMenu>  
+
+                            <h:outputText value="Roles:" /> 
+                            <p:inputText id="roles">
+                            </p:inputText>  
+
+
+                            <h:outputText value="Password" />
+                            <p:password id="password" value="#{registrationBean.password}" required="true" requiredMessage="password is required" validatorMessage="password be between 2 to 10" feedback="false">
+                                <f:validateLength minimum="2" maximum="10" for="Password"/>
+                            </p:password>
+                            <p:spacer></p:spacer>
+                            <p:message for="password"></p:message>
+
+                            <p:commandButton action="#{registrationBean.officename(s)}" value="save" update="registrationForm" ajax="true"></p:commandButton>
+                        </h:panelGrid> 
+                    </p:panel>
+                </h:form>
+
+            </p:layoutUnit>
+        </p:layout> 
+    </body>
+</html>
