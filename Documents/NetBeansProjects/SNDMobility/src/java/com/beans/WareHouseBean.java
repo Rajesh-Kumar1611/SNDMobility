@@ -39,6 +39,7 @@ public class WareHouseBean {
     private List<WareHouse> subList2;
     private String warehousestring;
     
+    
     private List<WareHouse> getProductNames()
     {
            Connection conn=null;
@@ -245,5 +246,6 @@ public class WareHouseBean {
     public void setWarehousestring(String warehousestring) {
         this.warehousestring = warehousestring;
     }
+    
     
 }
