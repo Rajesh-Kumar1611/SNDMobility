@@ -6,6 +6,7 @@
 package com.beans;
 
 
+import com.pojo.Office;
 import com.pojo.WareHouse;
 import com.utils.DBUtil;
 import java.sql.Connection;
@@ -38,12 +39,55 @@ public class WareHouseBean {
     private WareHouse warehouseobject;
     private List<WareHouse> subList2;
     private String warehousestring;
+    private ArrayList<Office> offices;
+
+    public ArrayList<Office> getOffices() {
+        return offices;
+    }
+
+    public void setOffices(ArrayList<Office> offices) {
+        this.offices = offices;
+    }
+    
+    private ArrayList<Office> getOfficeNames()
+    {
+    
+        Connection conn=null;
+        ArrayList<Office> cat=new ArrayList<Office>();
+        try {
+        conn=DBUtil.getConnection();
+        Statement stmt=conn.createStatement();
+        ResultSet rs=stmt.executeQuery("select fld_Office_Name_VC from tbloffice");
+        while(rs.next())
+        {
+        Office office=new Office();
+        office.setOfficename(rs.getString(1));
+        cat.add(office);
+        
+        }
+        } catch (Exception e) {
+            System.out.println("Exception while reading"+e);
+        }
+        finally
+        {
+            try {
+                DBUtil.closeConnection(conn);
+            } catch (Exception e) {
+            }
+        
+        
+        }
+    return cat;
+    
+    }
+    
+    
     
     
     private List<WareHouse> getProductNames()
     {
            Connection conn=null;
-        List<WareHouse> cat=new ArrayList<WareHouse>();
+        ArrayList<WareHouse> cat=new ArrayList<WareHouse>();
         try {
         conn=DBUtil.getConnection();
         Statement stmt=conn.createStatement();
@@ -75,6 +119,7 @@ public class WareHouseBean {
     
     public WareHouseBean() {
         list=new ArrayList<WareHouse>();
+        offices=getOfficeNames();
         root=new DefaultTreeNode("Root",null);
         list=getProductNames();
         treenode=new DefaultTreeNode("", root);
@@ -117,7 +162,7 @@ public class WareHouseBean {
           System.out.println(getSelectedNode().getData().toString()+" child"+warehousestring);
           
         Connection conn=null;
-        List<WareHouse> cat=new ArrayList<WareHouse>();
+      //  List<WareHouse> cat=new ArrayList<WareHouse>();
         try {
       
         conn=DBUtil.getConnection();

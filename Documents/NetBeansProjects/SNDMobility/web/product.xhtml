@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+   <h:head>
+        <title>Product Management</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+    </h:head>
+    <h:body  style="background:#000000 ">
+        
+        
+        
+        
+        
+        
+        
+        <div class="container-fluid">
+  <div class="row-fluid">
+      <div class="span3" >
+         <br/><br/>
+         <h:outputLabel styleClass="span3" style="font-weight: 600;font-size:35px; font-family: Trebuchet MS">Product</h:outputLabel>
+        <br/><br/>
+        <div >
+            <a href="#myModal" class="btn btn-block" data-toggle="modal" style="font-size: 15px" >Add Product</a>
+
+        </div>
+        <br/>
+        <br/>
+        <div class="modal hide fade" id="myModal" aria-hidden="true" style="background: skyblue" align="center">
+            <div class="modal-header">
+                <h3 align="left">Add Product</h3>
+            </div>
+            <div class="modal-body">
+                <h:form id="form1"  style="  font-size: 11px  ">
+                    <p:growl id="messages" showDetail="true"/>
+                    <p:panel header="Product Details" style="width: 400px;" >
+                        <p:panelGrid columns="2">
+                            <h:outputLabel for="fld_ProductID_int" value="Product ID: " />
+                            <p:inputText  value="#{item.fld_ProductID_int}"  id="fld_ProductID_int"/>
+                            <h:outputLabel for="fld_ProductName_VC" value="Product Name: " />
+                            <p:inputText value="#{item.fld_ProductName_VC}" id="fld_ProductName_VC"/>
+                            <h:outputLabel for="fld_Product_Price_float" value="Product Price: " />
+                            <p:inputText  value="#{item.fld_Product_Price_float}" id="fld_Product_Price_float"/>
+                            <h:outputLabel for="fld_CatogeryID_int" value="Category ID: " />
+                            <p:inputText  value="#{item.fld_CatogeryID_int}" id="fld_CatogeryID_int"/>
+                            <f:facet name="footer">
+                                <h:commandButton value="Add Item" action="#{item.addAction}"/>
+                            </f:facet>
+                        </p:panelGrid>
+                        <p:spacer height="30px;"/>
+                    </p:panel>
+                </h:form>
+                <p:panel style="width: 400px"> 
+                    <h:form enctype="multipart/form-data" style="  font-size: 11px">
+                        <p:fileUpload value="#{fileUploadControl.file}" mode="simple" update="growl"/>
+                        <h:commandButton value="submit" action="#{fileUploadControl.upload()}"/>       
+                    </h:form>
+
+                    <h:form><p:growl id="growl" showDetail="true"/></h:form>
+                </p:panel>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">close</button>
+            </div>
+        </div>
+    </div>
+    <div class="span8">
+      <br/>
+      <br/>
+      <br/>
+        <h:form id="form2" style="  font-size: 13px ; text-align: center;width: 900px;" > 
+            <p:dataGrid value="#{customer.messages}" var="o" paginator="true"   columns="5" 
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         widgetVar="50" style="width: 100px;" >
+                
+                
+                <f:facet name="header">  
+                    <h:outputText value="#{customer.fld_CatogeryID_int}"/>
+                </f:facet>
+                
+                
+                <p:panel  header="#{o.fld_ProductName_VC}" style="text-align:center">
+                    
+                    <h:panelGrid columns="1" style="width:150%" >
+                    
+                            <h:outputText style="  font-size: 13px " value=" ID : #{o.fld_ProductID_int}" />
+                            <h:outputText style="  font-size: 13px " value=" Price : #{o.fld_Product_Price_float}" />
+                        
+                    </h:panelGrid>  
+                
+                </p:panel>
+
+
+             
+    
+
+            </p:dataGrid>
+           
+        </h:form>
+ 
+     
+    </div>
+  </div>
+</div>
+
+       
+    </h:body>   
+
+</html>
+

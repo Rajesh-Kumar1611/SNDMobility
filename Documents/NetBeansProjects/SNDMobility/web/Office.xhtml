@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+xmlns:f="http://java.sun.com/jsf/core"
+
+xmlns:h="http://java.sun.com/jsf/html"
+
+ xmlns:p="http://primefaces.org/ui">
+    
+    <style>
+ body {
+	margin: 0px;
+	padding: 0;
+	color: #616161;
+}
+
+h1, h2, h3 {
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 1.6em;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1em;
+	margin-top:20px;
+}
+
+ul {
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+}
+
+img.left {
+	float: left;
+	margin: 0 20px 0 0;
+}
+
+img.right {
+	float: right;
+	margin: 0 0 0 20px;
+}
+
+/* Header */
+#header {
+    padding: 4px 0px;
+    height: 75px;
+    position: relative;
+}
+
+#logo {
+    text-align: left;
+}
+
+/* Menu */
+#menu {
+    position: absolute;
+    top:25px;
+    right:15px;
+	padding: 0;
+	height: 59px;
+    overflow: hidden;
+}
+
+#menu ul {
+	margin: 0;
+	list-style: none;
+}
+
+#menu li {
+	display: inline;
+}
+
+#menu li a {
+	display: block;
+	float: left;
+	height: 42px;
+	margin: 0;
+	padding: 18px 40px 0 40px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+#menu li a:hover {
+	text-decoration: underline;
+}
+
+#globalthemeswitcher {
+    position:absolute;
+    top:5px;
+    right:50px;
+}
+
+/* Page */
+#page {
+	padding: 10px 0px;
+	background: #FFFFFF;
+}
+
+/* Content */
+#content {
+	width: 70%;
+    float:left;
+}
+
+.post {
+	padding-bottom: 15px;
+}
+
+.post h1 {
+	font-weight: normal;
+}
+
+.title {
+	height: 30px;
+	margin-left: 10px;
+	padding: 8px 0 0 20px;
+}
+
+.title a {
+	border-bottom: none;
+	color: #FFFFFF;
+}
+
+.title a:hover {
+	border-bottom: 1px dotted #000000;
+}
+
+.submenu-title {
+    padding: 4px 10px;
+}
+
+.submenu-content {
+    text-align:center;
+}
+
+.byline {
+	margin: -60px 20px 20px 20px;
+}
+
+.byline a {
+	color: #DC8700;
+}
+
+.tag {
+	padding: 0 15px;
+}
+
+.entry {
+	padding: 0 20px;
+}
+
+.entry p {
+	line-height: 200%;
+}
+
+.links {
+	padding: 4px 0px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.links a {
+	border: none;
+}
+
+.links a:hover {
+}
+
+#sidebar {
+	float: left;
+	width: 25%;
+	padding: 0 10px;
+	margin-left: -1px;
+    overflow: hidden;
+}
+
+#sidebar a.ui-state-hover, 
+#sidebar a.ui-state-highlight {
+    border:0 none;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#sidebar table {
+    width: 100%;
+}
+
+#sidebar table td {
+    vertical-align: top;
+}
+
+#sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    list-style-type: none;
+    padding: 1px;
+}
+
+/* Footer */
+#footer {
+	height: 70px;
+	margin: 0 auto;
+	padding: 0 20px;
+    font-size: 14px;
+}
+
+#footer p {
+	margin: 0;
+	padding: 25px 0 0 0;
+	text-align: center;
+}
+
+#footer a {
+}
+
+#footer .link {
+	float: right;
+}
+
+#footer .copyright {
+	float: left;
+}
+
+.homeText {
+	line-height: 175%;
+}
+
+.homeMenu {
+	width:200px;
+	float:left;
+	margin-right:10px
+}
+
+.themeMenu {
+    overflow: auto;
+    height:300px;
+    width:200px;
+}
+
+.dp-xml {
+    width:1000px;
+}
+
+.ui-themeswitcher a.ui-selectonemenu-label-container {
+    text-decoration: none !important;
+}
+
+.ui-widget {
+    font-size: 12px !important;
+}
+</style>  
+
+<h:head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+
+
+
+      <link rel="stylesheet" type="text/css" href="content/css/bootstrap-responsive.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/bootmetro.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/bootmetro-tiles.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/bootmetro-charms.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/metro-ui-light.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/icomoon.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/datepicker.css"></link>
+       <link rel="stylesheet" type="text/css" href="content/css/daterangepicker.css"></link>
+
+   <!--  these two css are to use only for documentation -->
+   <link rel="stylesheet" type="text/css" href="content/css/demo.css"></link>
+       <link rel="stylesheet" type="text/css" href="scripts/google-code-prettify/prettify.css" ></link>
+
+   <!-- Le fav and touch icons -->
+   <link rel="shortcut icon" href="content/ico/favicon.ico"></link>
+       <link rel="apple-touch-icon-precomposed" sizes="144x144" href="content/ico/apple-touch-icon-144-precomposed.png"></link>
+       <link rel="apple-touch-icon-precomposed" sizes="114x114" href="content/ico/apple-touch-icon-114-precomposed.png"></link>
+       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="content/ico/apple-touch-icon-72-precomposed.png"></link>
+       <link rel="apple-touch-icon-precomposed" href="content/ico/apple-touch-icon-57-precomposed.png"></link>
+  
+                 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+  
+</h:head>
+
+    <h:body>
+        
+        
+          
+        <div class="row" style="margin-left: 500px">
+        <a href="#add_office"  data-toggle="modal" >
+            
+             <button class="win-command" >
+                  <span class="win-commandimage win-commandring">&#xe03e;</span>
+                  <span class="win-label">Add</span>
+               </button>
+            
+             <hr class="win-command" />
+            
+            
+        </a>
+        
+        
+        
+<div class="modal hide fade btn btn-navbar" id="add_office" aria-hidden="true">
+	<div  class="modal-header">
+		<h3>Add Office Details</h3>
+	</div>
+
+	<div class="modal-body">
+		
+            <h:form class="btn">
+
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+
+	<p:wizard widgetVar="wiz"
+                  flowListener="#{officeAddWizard.onFlowProcess}" >
+	
+            <p:tab id="personal"  title="Contacts">
+
+                    <p:panel  header="Contact Details">
+			
+				<h:messages errorClass="error"/>
+				
+				<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
+					<h:outputText value="Officename: *" />
+					<p:inputText required="true" label="Officename" value="#{officeAddWizard.user.fld_Office_Name_VC}" />
+					
+					<h:outputText value="Officetype: *" />
+					<p:inputText required="true" label="Officetype" value="#{officeAddWizard.user.fld_OfficeType_int}" />
+					
+					<h:outputText value="Email ID: *" />
+                                        <p:inputText required="true" label="emailid" value="#{officeAddWizard.user.fld_Email_VC}" />
+                                        
+                                        <h:outputText value="Website: " />
+                                        <p:inputText value="#{officeAddWizard.user.fld_Website_VC}" />
+                                        
+                                        <h:outputText value="Work Phone no.: *" />
+                                        <p:inputText required="true" label="workphonephno" value="#{officeAddWizard.user.fld_WorkPhno_int}" />
+                                        
+                                        <h:outputText value="Cellphone no.: *" />
+                                        <p:inputText required="true" label="cellphoneno" value="#{officeAddWizard.user.fld_CellPhno_int}" />
+                                        
+                                        <h:outputText value="Fax no.: *" />
+                                        <p:inputText required="true" label="faxno" value="#{officeAddWizard.user.fld_Faxno_int}" />
+					
+					
+				</h:panelGrid>
+			</p:panel>
+		</p:tab>
+			
+		<p:tab id="address" title="Address">
+			<p:panel header="Adress Details">
+			
+				<h:messages errorClass="error"/>
+				
+				<h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Building no: " />
+                                        <p:inputText required="true" label="street" value="#{officeAddWizard.user.fld_Buildingno_VC}" />
+                                    
+					<h:outputText value="Street: " />
+                                        <p:inputText required="true" label="street" value="#{officeAddWizard.user.fld_Street_VC}" />
+					
+					<h:outputText value="AreaLocality: " />
+                                        <p:inputText required="true" label="AreaLocality" value="#{officeAddWizard.user.fld_AreaLocality_VC}" />
+                                        
+                                        <h:outputText value="LandMark: " />
+                                        <p:inputText required="true" label="LandMark" value="#{officeAddWizard.user.fld_LandMark_VC}" />
+                                        
+                                        <h:outputText value="City: " />
+                                        <p:inputText required="true" label="street" value="#{officeAddWizard.user.fld_City_VC}" />
+                                        
+                                        <h:outputText value="ZipCode: " />
+                                        <p:inputText required="true" label="ZipCode" value="#{officeAddWizard.user.fld_ZipCode}" />
+                                        
+                                        <h:outputText value="State: " />
+                                        <p:inputText required="true" label="State" value="#{officeAddWizard.user.fld_State_VC}" />
+                                        
+                                        <h:outputText value="Country: " />
+                                        <p:inputText required="true" label="Country" value="#{officeAddWizard.user.fld_Country_VC}" />
+                                        
+                                        <h:outputText value="Comments: " />
+                                        <p:inputText required="true" label="Comments" value="#{officeAddWizard.user.fld_Comments_VC}" />
+					
+					
+				</h:panelGrid>
+			</p:panel>
+		</p:tab>
+			
+		<p:tab id="contact" title="Custom">
+			<p:panel header="Custom Addons">
+				
+<!--				<h:messages errorClass="error"/>
+			
+				<h:panelGrid columns="2" columnClasses="label, value">
+					<h:outputText value="Email: *" />
+					<p:inputText required="true" label="Email"
+                                                     value="#{OffWizard.user.fld_Office_Name_VC}" />
+					
+					<h:outputText value="Phone: " />
+                                        <p:inputText value="#{OffWizard.user.fld_Office_Name_VC}"/>
+					
+					<h:outputText value="Additional Info: " />
+                                        <p:inputText value="#{OffWizard.user.fld_Office_Name_VC}"/>
+				</h:panelGrid>-->
+			</p:panel>
+		</p:tab>
+			
+		<p:tab id="confirm" title="Confirmation">
+			<p:panel header="Confirmation">
+			
+				<h:panelGrid id="confirmation" columns="2">
+					<h:outputText value="Office Name: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Office_Name_VC}" />
+					
+					<h:outputText value="Office Type: " />
+					<h:outputText  styleClass="outputLabel"
+                                                       value="#{officeAddWizard.user.fld_OfficeType_int}"/>
+					
+					<h:outputText value="Email : " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Email_VC}" />
+					
+					<h:outputText value="Website: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Website_VC}" />
+					
+					<h:outputText value="Work Phone no: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_WorkPhno_int}" />
+					
+					<h:outputText value="CellPhone no: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_CellPhno_int}" />
+					
+					<h:outputText value="Fax: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Faxno_int}" />
+					
+					<h:outputText value="Building no: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Buildingno_VC}"/>
+					
+					<h:outputText value="Street: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Street_VC}" />
+                                        
+                                        <h:outputText value="AreaLocality: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_AreaLocality_VC}" />
+					
+                                        
+                                        <h:outputText value="LandMark: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_LandMark_VC}" />
+                                        
+                                        <h:outputText value="City: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_City_VC}" />
+                                        
+                                        <h:outputText value="ZipCode: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_ZipCode}" />
+                                        
+                                        <h:outputText value="State: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_State_VC}" />
+                                        
+                                        <h:outputText value="Country: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Country_VC}" />
+                                        
+                                        <h:outputText value="Comments: " />
+					<h:outputText styleClass="outputLabel"
+                                                      value="#{officeAddWizard.user.fld_Comments_VC}" />
+					<h:outputText />
+					<h:outputText />
+				</h:panelGrid>
+				
+				<p:commandButton value="Submit" update="growl" 
+                                                 actionListener="#{officeAddWizard.store}"/>
+			
+			</p:panel>
+		</p:tab>
+		
+	</p:wizard>
+	
+</h:form>		
+
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn btn-success" data-dismiss="modal" aria-hidden="true">close</button>
+	</div>
+	
+</div>
+        
+     <a href="#edit_office"  data-toggle="modal">
+            
+         <button class="win-command">
+                  <span class="win-commandimage win-commandring ">&#xe193;</span>
+                  <span class="win-label">Edit</span>
+               </button>
+         
+          <hr class="win-command" />
+            
+            
+        </a>
+        
+<div class="modal hide fade" id="edit_office" aria-hidden="true">
+	<div class="modal-header">
+		<h3>Edit Office Details</h3>
+	</div>
+
+	<div class="modal-body">
+		
+		<form>
+			<label>Office Name</label>
+			<input type="email" class="span4"/><br/>
+			<label>Office type</label>
+			
+			<input type="text" class="span4"/><br/>
+			<button type="submit" >Save</button>
+			<button type="reset" class="btn">clear</button>
+			
+		</form>
+
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">close</button>
+	</div>
+	
+</div>   
+         
+        <a href="#delete_office"  data-toggle="modal">
+            
+              <button class="win-command">
+                  <span class="win-commandimage win-commandring">&#xE001;</span>
+                  <span class="win-label">Delete</span>
+               </button>
+            
+            
+        </a>
+        
+<div class="modal hide fade" id="delete_office" aria-hidden="true">
+	<div class="modal-header">
+		<h3>Edit Office Details</h3>
+	</div>
+
+	<div class="modal-body">
+		
+		<form>
+			<label>Office Name</label>
+			<input type="email" class="span4"/><br/>
+			<label>Office type</label>
+			
+			<input type="text" class="span4"/><br/>
+			<button type="submit" >Save</button>
+			<button type="reset" class="btn">clear</button>
+			
+		</form>
+
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">close</button>
+	</div>
+	
+</div>   
+        
+    </div>       
+  
+    <br/>
+    <br/>
+    <br/>
+    <div class="row" >
+       
+        
+         <h:form id="form2" style=" margin-left: 50px ;font-size: 13px; width: 1300px"   > 
+             <p:dataGrid value="#{office.messages}" var="o" paginator="true"   columns="3" style="text-align: center"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         widgetVar="50" >
+                
+                
+                <f:facet name="header">  
+                   Office Details
+                </f:facet>
+                
+                
+             <p:panel  header="#{o.fld_Office_Name_VC}" >
+                    
+                 <h:panelGrid columns="2"  >
+                         <h:outputLabel value="Office type:"/>
+                         <h:outputText style=" text-align:center ; font-size: 13px  " value="  #{o.fld_OfficeType_int} " />
+                         <h:outputLabel value="Email :"/>
+                         <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_Email_VC}" />
+                         <h:outputLabel value="Website :"/>
+                         <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_Website_VC}" />
+                          <h:outputLabel value="Work Phone no :"/>
+                          <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_WorkPhno_int}" />
+                          <h:outputLabel value="CellPhone no :"/>
+                          <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_CellPhno_int}" />
+                           <h:outputLabel value="Fax :"/>
+                           <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_Faxno_int}" />
+                            <h:outputLabel value="Address :"/>
+                            <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_Buildingno_VC}  #{o.fld_Street_VC} #{o.fld_AreaLocality_VC} near #{o.fld_LandMark_VC} " />
+                        
+                          <h:outputLabel value=""/>
+                          <h:outputText style=" text-align:center ; font-size: 13px " value="  #{o.fld_City_VC} #{o.fld_State_VC}  #{o.fld_Country_VC} #{o.fld_ZipCode}" />
+                         
+                    </h:panelGrid>  
+                
+                </p:panel>
+
+            </p:dataGrid>
+           
+        </h:form>
+        
+    </div>
+ 
+
+</h:body>
+
+</html>

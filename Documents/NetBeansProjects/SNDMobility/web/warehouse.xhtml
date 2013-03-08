@@ -283,8 +283,8 @@
                         <p:menuitem value="Add Categeory" update="folderPanel" oncomplete="folderDialog.show();" icon="ui-icon-plus"/>
                     </p:contextMenu> 
                     <p:panel id="panelId" style="border: 0px">
-                        <p:tree value="#{nodeBean.root}" var="node" dynamic="true" id="folderTree"
-                                selectionMode="single" selection="#{nodeBean.selectedNode}">
+                        <p:tree value="#{wareHouseBean.root}" var="node" dynamic="true" id="folderTree"
+                                selectionMode="single" selection="#{wareHouseBean.selectedNode}">
                             <p:treeNode>
                                 <h:outputText value="#{node}"/>
                             </p:treeNode>
@@ -295,10 +295,10 @@
                             <p:outputPanel id="folderPanel">  
                                 <h:panelGrid columns="2" cellpadding="4">  
                                     <h:outputText value="Categeory Name:" />  
-                                    <h:inputText id="id" value="#{nodeBean.categeorystring}" required="true">
+                                    <h:inputText id="id" value="#{wareHouseBean.warehousestring}" required="true">
                                         <f:validateLength minimum="1" maximum="30"/>
                                     </h:inputText>
-                                    <p:commandButton value="Add Categeory" update="panelId" action="#{nodeBean.createNode()}" async="true"/>
+                                    <p:commandButton value="Add Categeory" update="panelId" action="#{wareHouseBean.createNode()}" async="true"/>
                                 </h:panelGrid>  
                             </p:outputPanel>
                         </p:dialog>  
